@@ -1,0 +1,17 @@
+service: myMailService
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  region: eu-west-2
+  runtime: nodejs6.10
+
+functions:
+  mailMe:
+    handler: handler.mailMe
+    events:
+      - http:
+          path: mail
+          method: post
+          cors: true
